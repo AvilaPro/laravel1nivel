@@ -1,0 +1,16 @@
+Enunciado de la tarea 4 de la sección 2950
+Realizar las siguientes actividades:
+El siguiente desafío es una continuación del desafío anterior. Debe enviar el proyecto comprimido sin la carpeta vendor.
+(adjunto al desafío esta la carpeta con el lenguaje español para la aplicación).
+
+1.- En la vista "index.blade.php" donde se listan todos los registros de Asesores debe agregar un enlace para agregar un nuevo asesor el cual debe apuntar al método "create" del controlador "AsesorController" debe retornar una vista llamada "crear.blade.php" donde debe estar el formulario para cargar los datos de un nuevo asesor. los datos cargados deben enviarse al al método "store" del mismo controlador para guardarlos en la base de datos y retornar a la lista de todos los asesores.
+
+2.- Crear un enlace en la tabla asesores de la vista "asesores/index.blade.php" similar al de "ver detalle" para "editar" un asesor este enlace debe apuntar al metodo "edit" del controlador el cual recibe como parametro un objeto de tipo Asesor que luego debera pasar a una vista llamada "editar.blade.php" con un formulario para editar el asesor (debe precargar los datos del asesor en los campos del formulario).
+
+3.- El formulario de edición creado en el item anterior debe enviar los datos a modificar al metodo "update" del controlador, donde debera actualizar el registro en la base de datos y retornar a la lista de asesores.
+
+4.- En la vista "index.blade.php" donde se listan todos los registros de Asesores debe agregar un formulario por cada asesor para borrar un asesor el cual debe apuntar al metodo "destroy" del controlador donde debera eliminar el registro de la base de datos , no olvide colocar en formulario el token csrf y el metodo que contiene el tipo de envio http "DELETE".
+
+5.- Debe validar en los metodos "store" y "update" del controlador que todos los datos sean obligatorios y el nombre del asesor no supere los 30 caracteres, aplique unas de las formas de validación vista en clase. Ademas los mensajes de error deben mostrarse en español para lo que debera agregar el paquete con el lenguaje español adjunto en el desafio y no olvide cambiar el idioma en el archivo "config/app.php".
+
+Descargar Archivo Adjunto
