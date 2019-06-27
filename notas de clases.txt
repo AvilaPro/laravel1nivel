@@ -1,0 +1,7 @@
+php artisan serve: ejecuta el servidor de php para laravel
+
+php artisan make:controller AlumnoController : este es el estandar para crear controladores
+
+php artisan make:model Alumno : este es el estandar para crear un modelo
+
+create composer-project laravel-laravel miProyecto 5.8.* : para instalar el framwork por la consola 
