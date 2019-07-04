@@ -1,0 +1,13 @@
+Enunciado de la tarea 1 de la sección 2950
+Realizar las siguientes actividades:
+NOTA: Envíe un archivo comprimido con las capturas de pantalla que validen la realización de cada item.
+
+1.- Prepare una instalación de composer en su computador, recuerde que debe tener instalado previamente PHP con algun paquete (wamp, xampp, easyphp).
+
+2.- Prepare una instalación de laravel 5.8 llamado Cadif1 en su computador.
+
+3.- Corra el servidor y acceda a la dirección 127.0.0.1:8000 para verificar que la aplicación funciona correctamente.
+
+4.- Modifique la zona horaria por "America/Caracas". modifique el mensaje de la vista que se mostró en el paso anterior. Coloque su nombre y apellido en lugar de la palabra "Laravel" y la fecha y hora actual. (hacer uso de la función date() para mostrar hora y fecha).
+
+5.- Ejecute el comando para colocar la aplicación en modo mantenimiento, acceda nuevamente a la dirección 127.0.0.1:8000 y refresque el navegador. luego ejecute el comando para volver la aplicación a su modo normal.
