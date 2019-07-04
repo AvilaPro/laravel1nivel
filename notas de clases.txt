@@ -5,3 +5,13 @@ php artisan make:controller AlumnoController : este es el estandar para crear co
 php artisan make:model Alumno : este es el estandar para crear un modelo
 
 create composer-project laravel-laravel miProyecto 5.8.* : para instalar el framwork por la consola 
+
+clase 2:
+
+php artisan: muestra en la consola todas la utilidades que puedo usar con php artisan
+
+php artisan make:controller productoController: Crea el controlador.
+
+php artisan route:list : Muestra las distintas rutas en una lista.
+
+php artisan make:controller Cursos/CursoController -r : Crea el controlador con todas sus rutas.
