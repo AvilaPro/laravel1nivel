@@ -1,0 +1,6 @@
+AlumnoController.php => Es el controlador creado.
+
+alumnos/index.blade.php => solicitado en el punto 3 de desafio.
+
+layouts/app.blade.php => solicitado en el punto 5 del desafio.
+

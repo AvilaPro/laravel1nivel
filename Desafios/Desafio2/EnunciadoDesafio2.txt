@@ -1,0 +1,14 @@
+Enunciado de la tarea 2 de la sección 2950
+Realizar las siguientes actividades:
+El siguiente desafío es una continuación del desafío anterior.
+(Debe enviar en una carpeta comprimida solo los archivos creados y las capturas de pantalla que hagan referencia a cada ítem del desafío).
+
+1.- Crear una ruta de recursos con el nombre "alumnos" que apunte a un controlador llamado "AlumnoController" que debe crear posteriormente. (el controlador también debe ser de recursos).
+
+2.- En el método index del controlador creado en item anterior debe crear un arreglo asociativo de alumnos y las notas de cada uno de ellos, donde cada alumnos tendrá un total de 3 notas. Se debe calcular el promedio por cada alumno.
+
+3.- Crear una vista dentro de una carpeta llamada "alumnos" y que tenga por nombre "index" que sea retornada por el metodo index del controlador.
+
+4.- La vista debe mostrar en pantalla un listado donde debe aparecer por cada alumno su nombre, las 3 notas y el promedio. debe hacer uso de las directivas blade.
+
+5.- Crear una vista dentro de una carpeta llamada "layouts" que tenga por nombre "app" que sea de la que herede la vista index.
