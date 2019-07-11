@@ -15,3 +15,52 @@ php artisan make:controller productoController: Crea el controlador.
 php artisan route:list : Muestra las distintas rutas en una lista.
 
 php artisan make:controller Cursos/CursoController -r : Crea el controlador con todas sus rutas.
+
+Clase 3:
+
+Antes de hacer las migraciones:
+1. En el archivo .env modificar el DB_DATABSE= 'nombre de la base de datos' (hay que crearla con anterioridad en phpmyadmin)
+2.Modificar DB_USERNAME= 'root'
+3. Modificar DB_PASSWORD = '' (vacio o la clave segun se necesite)
+
+Para hacer migraciones
+
+1.Intentar el comando php artisan migrate.
+2.Si da error ejecutar el comando php artisan migrate:fresh
+3.ejecutar de nuevo php artisan migrate
+4.Luego podemos crear nuestro archivo de migracion. php artisan make:model Curso (que sea en singular y la primera letra mayuscula)
+5.En la nueva migracion (app/providers/AppServiceProvider.php) agregar el use (use Illuminate\Support\Facades\Schema;) y en el metodo boot() agregar esto: Schema::defaultStringLength(191); hay que agregar si el mysql es mas antiguo que 5.7.7 porque si no dara error.
+6.En (/config/app.php) buscar la application debug y cambiar el valor a true (para poder ver los debug)
+7.Para agregar columnas a una tabla se puede hacer directamente en (/database/migration/su archivo) y en el metodo up se pueden establecer las columnas inidcando tipo de dato, nombre y si aceptara null u otras especificaciones
+por ej. public function up()
+    {
+        Schema::create('cursos', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('titulo');
+            $table->text('description')->nullable();
+            $table->timestamps();
+        });
+    }
+8. Podemos usar la herramienta "Tinker" que permite ejecutar instrucciones php en la consola
+Por ejemplo podriamos usar algo asi: $cursos = App\Curso::all()
+Esto asignaria el objeto que se genera en el registro a una variable que luego podemos manejar
+9.Si queremos crear un modelo con ayuda de Eloquent ejecutamos: php artisan make:model 'nombre del modelo'
+10.Tambien podemos crear un modelo con el Factory, su Migration y su Controller de una vez con el comando php artisan make:model 'nombre' -a
+11.Si queremos ver nuestras rutas podemos ejecutar el comando php artisan route:list
+12. Si queremos invocar valores de un objeto en nuestras vistas ver el archivo. (resources/views/cursos.blade.php)
+13.Podemos modificar el metodo show de algun controlador para decirle a donde debera mostrar, como por ej.
+public function show(Curso $curso)
+    {
+        return view('cursos.ver', compact('curso'));
+    }
+14.Esa referencia 'cursos.ver' debe ser creada en (/resources/views/'carpeta'ej:cursos) y dentro de ella el archivo ver.blade.php
+15.Si queremos cambiar el nombre de una tabla y que esto no afecte ni las migrations, ni el modelo
+debemos agregar al modelo como sigue el ej.
+class Asesor extends Model
+{
+    protected $table = "asesores"; //de esta forma podemos establecer a que tabla hara referencia
+}
+Y ademas en la migration cambiar todo donde diga 'asesors' por 'asesores'
+
+
+Nota curiosa: la instruccion dd($cursos); permite ver el objeto de una forma singular en el navegador ademas de que interrumpe alli la ejecucion que se este llevando a cabo en el controlador
