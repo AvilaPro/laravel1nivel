@@ -26,7 +26,7 @@ Antes de hacer las migraciones:
 Para hacer migraciones
 
 1.Intentar el comando php artisan migrate.
-2.Si da error ejecutar el comando php artisan migrate:fresh
+2.Si da error ejecutar el comando php artisan migrate:fresh (o intentar haciend el punto 4. y volver aqui al punto 2. luego 3. y 4. y ya no hara falta hacer el 5.)
 3.ejecutar de nuevo php artisan migrate
 4.Luego podemos crear nuestro archivo de migracion. php artisan make:model Curso (que sea en singular y la primera letra mayuscula)
 5.En la nueva migracion (app/providers/AppServiceProvider.php) agregar el use (use Illuminate\Support\Facades\Schema;) y en el metodo boot() agregar esto: Schema::defaultStringLength(191); hay que agregar si el mysql es mas antiguo que 5.7.7 porque si no dara error.
