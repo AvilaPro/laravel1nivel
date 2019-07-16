@@ -1,6 +1,7 @@
 composer.phar
 /vendor/
 /miProyecto
+/miProyecto_clase3
 /cadif1
 *.rar
 
