@@ -3,7 +3,6 @@ composer.phar
 /miProyecto
 /miProyecto_clase3
 /cadif1
-*.rar
 
 
 # Commit your application's lock file https://getcomposer.org/doc/01-basic-usage.md#commit-your-composer-lock-file-to-version-control
