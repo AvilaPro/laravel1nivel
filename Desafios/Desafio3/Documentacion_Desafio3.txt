@@ -1,0 +1,27 @@
+1.- Configure una conexion a una base de datos que debe llamar "db_cadif1". Utilice el comando para crear una nueva migracion llamada "alumnos" y 
+agregue 3 campos a la migracion (nombre, apellido, edad). ejecute el comando de migraci?n correspondiente para crear las tablas en la base de datos. 
+(hacer capturas de pantallas de la ejecucion de los comandos en la consola).
+
+Vease las imagenes desde la 1_1 a la 1_4.
+
+2.- Modifique el metodo "index" del controlador "AlumnoController", en este m?todo ahora debe hacer uso del generador de consultas 
+(QueryBuilder) para traer todos los registros de la tabla "alumnos" y pasarlos a la vista para mostrarlos en una tabla HTML. 
+Recuerde que este m?todo retornaba la vista index.blade.php que se creo en la carpeta "resource/views/alumnos", por lo que tambien 
+debe modificarla para mostrar los registros de los alumnos.
+
+Vaya a la ruta /app/Http/Controllers/Alumnos/AlumnoController.php
+
+Vea la linea 28.
+
+Vaya tambien a la ruta /resources/views/alumnos/index.blade.php
+
+Para ver la tabla en HTML de la presentacion de los alumnos.
+
+3.- Utilice el comando para crear un modelo llamado "Asesor" junto con la migraci?n y el controlador de recursos, agregue los campos 
+(nombre, profesion, fecha_ingreso) a la migraci?n creada y ejecute el comando de migraci?n para resetear la base de datos haga uso de 
+la consola de laravel (tinker) para agregar registros al modelo. (hacer capturas de pantallas de la ejecuci?n de los comandos en la consola). 
+No olvide crear la ruta de recursos para el controlador.
+
+
+
+

@@ -1,14 +1,25 @@
-Enunciado de la tarea 3 de la sección 2950
+Enunciado de la tarea 3 de la secciï¿½n 2950
 Realizar las siguientes actividades:
-El siguiente desafío es una continuación del desafío anterior.
+El siguiente desafï¿½o es una continuaciï¿½n del desafï¿½o anterior.
 (Debe enviar en una carpeta comprimida el proyecto exceptuando la carpeta vendor y las capturas de pantalla solicitadas).
 
-1.- Configure una conexión a una base de datos que debe llamar "db_cadif1". Utilice el comando para crear una nueva migración llamada "alumnos" y agregue 3 campos a la migración (nombre, apellido, edad). ejecute el comando de migración correspondiente para crear las tablas en la base de datos. (hacer capturas de pantallas de la ejecución de los comandos en la consola).
+1.- Configure una conexiï¿½n a una base de datos que debe llamar "db_cadif1". Utilice el comando para crear una nueva migraciï¿½n llamada "alumnos" y 
+agregue 3 campos a la migraciï¿½n (nombre, apellido, edad). ejecute el comando de migraciï¿½n correspondiente para crear las tablas en la base de datos. 
+(hacer capturas de pantallas de la ejecuciï¿½n de los comandos en la consola).
 
-2.- Modifique el método "index" del controlador "AlumnoController", en este método ahora debe hacer uso del generador de consultas (QueryBuilder) para traer todos los registros de la tabla "alumnos" y pasarlos a la vista para mostrarlos en una tabla HTML. Recuerde que este método retornaba la vista index.blade.php que se creo en la carpeta "resource/views/alumnos", por lo que también debe modificarla para mostrar los registros de los alumnos.
+2.- Modifique el mï¿½todo "index" del controlador "AlumnoController", en este mï¿½todo ahora debe hacer uso del generador de consultas 
+(QueryBuilder) para traer todos los registros de la tabla "alumnos" y pasarlos a la vista para mostrarlos en una tabla HTML. 
+Recuerde que este mï¿½todo retornaba la vista index.blade.php que se creo en la carpeta "resource/views/alumnos", por lo que tambiï¿½n 
+debe modificarla para mostrar los registros de los alumnos.
 
-3.- Utilice el comando para crear un modelo llamado "Asesor" junto con la migración y el controlador de recursos, agregue los campos (nombre, profesion, fecha_ingreso) a la migración creada y ejecute el comando de migración para resetear la base de datos haga uso de la consola de laravel (tinker) para agregar registros al modelo. (hacer capturas de pantallas de la ejecución de los comandos en la consola). No olvide crear la ruta de recursos para el controlador.
+3.- Utilice el comando para crear un modelo llamado "Asesor" junto con la migraciï¿½n y el controlador de recursos, agregue los campos 
+(nombre, profesion, fecha_ingreso) a la migraciï¿½n creada y ejecute el comando de migraciï¿½n para resetear la base de datos haga uso de 
+la consola de laravel (tinker) para agregar registros al modelo. (hacer capturas de pantallas de la ejecuciï¿½n de los comandos en la consola). 
+No olvide crear la ruta de recursos para el controlador.
 
-4.- En el método index del controlador creado en el item anterior haga uso de eloquent para consultar todos los registros a través del modelo "Asesor". cree una vista llamada "index" dentro de una carpeta llamada "asesores", la vista debe ser retornada por el método index.
+4.- En el mï¿½todo index del controlador creado en el item anterior haga uso de eloquent para consultar todos los registros a travï¿½s 
+del modelo "Asesor". cree una vista llamada "index" dentro de una carpeta llamada "asesores", la vista debe ser retornada por el mï¿½todo index.
 
-5.- mostrar los registros de asesores en una tabla HTML en la vista creada en el item anterior, Agregar un enlace en la tabla de los asesores que permita ver el detalle de cada asesor. Debe crear una vista llamada "detalle" en la carpeta "asesores". Luego preparar el método "show" para que retorne la vista "detalle" y pase como parámetro el objeto asesor correspondiente al enlace al que se dio click.
+5.- mostrar los registros de asesores en una tabla HTML en la vista creada en el item anterior, Agregar un enlace en la tabla de 
+los asesores que permita ver el detalle de cada asesor. Debe crear una vista llamada "detalle" en la carpeta "asesores". Luego preparar 
+el mï¿½todo "show" para que retorne la vista "detalle" y pase como parï¿½metro el objeto asesor correspondiente al enlace al que se dio click.
