@@ -22,6 +22,29 @@ Para ver la tabla en HTML de la presentacion de los alumnos.
 la consola de laravel (tinker) para agregar registros al modelo. (hacer capturas de pantallas de la ejecuci?n de los comandos en la consola). 
 No olvide crear la ruta de recursos para el controlador.
 
+VEA LAS CAPTURAS DE PANTALLA QUE HACEN REFERENCIA
+
+4.- En el m?todo index del controlador creado en el item anterior haga uso de eloquent para consultar todos los registros a trav?s 
+del modelo "Asesor". cree una vista llamada "index" dentro de una carpeta llamada "asesores", la vista debe ser retornada por el m?todo index.
+
+Vease la ruta app/Http/Controllers/AsesorController.php Linea 19.
+
+
+5.- mostrar los registros de asesores en una tabla HTML en la vista creada en el item anterior, Agregar un enlace en la tabla de 
+los asesores que permita ver el detalle de cada asesor. Debe crear una vista llamada "detalle" en la carpeta "asesores". Luego preparar 
+el m?todo "show" para que retorne la vista "detalle" y pase como par?metro el objeto asesor correspondiente al enlace al que se dio click.
+
+Ver archivos correspondientes.
+
+Nota: se tuvo que hacer la busqueda del detalle a traves de id del asesor como sigue en el metodo show del controlador del asesor
+
+public function show($id)
+    {
+        $asesor=Asesor::find($id);
+        return view('asesores.detalle', compact('asesor'));
+    }
+
+
 
 
 
