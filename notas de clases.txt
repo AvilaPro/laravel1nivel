@@ -64,3 +64,152 @@ Y ademas en la migration cambiar todo donde diga 'asesors' por 'asesores'
 
 
 Nota curiosa: la instruccion dd($cursos); permite ver el objeto de una forma singular en el navegador ademas de que interrumpe alli la ejecucion que se este llevando a cabo en el controlador
+
+Clase 4:
+
+Veremos el CRUD en laravel
+
+1.primero en el controlador de Curso
+public function create()
+    {
+        return view('cursos.crear');
+    }
+2.Debemos crear esa vista en la ruta resources\view\cursos
+	crear.blade.php
+con la siguiente estructura
+@extends('app')
+
+@section('contenido')
+    <h1>Nuevo Curso</h1>
+    <ul>
+        @foreach($errors->all() as $error)
+        <li style="color:red">{{ $error }}</li>
+        @endforeach
+    </ul>
+    <form action="{{ route('curso.store') }}" method="post">
+        @csrf
+        <label for="">Titulo</label><br>
+        <input type="text" name="titulo">
+        @error('titulo')
+        <span>{{ $message }}</span>
+        @enderror
+        <br>
+        <label for="">Descripcion</label><br>
+        <textarea name="description" id="" cols="30" rows="10"></textarea><br><br>
+        <button type="submit">Guardar</button>
+    </form><br><br><br>
+    <a href="{{ route('curso.index') }}"> Lista de cursos</a>
+@endsection
+
+3.Modificar el metodo store del controlador
+
+public function store(CursoRequest $request)
+    {
+        //dd($request->all());
+
+        //validar campos del formulario
+
+        /* $this->validate(request(),
+        ['titulo' => 'required',
+        'description' => 'required']); */
+
+        $curso = new Curso();
+        $curso->titulo = $request->titulo;
+        $curso->description = $request->description;
+        $curso->save();
+
+        return redirect()->route('curso.index');
+    }
+
+4. Para editar valores, modificar el metodo edit
+public function edit(Curso $curso)
+    {
+        return view('cursos.editar', compact('curso'));
+    }
+
+5. Debemos crear la vista de edicion en la ruta resources\view\cursos
+	editar.blade.php
+con la siguiente estructura
+@extends('app')
+
+@section('contenido')
+    <h1>Modificar Datos del Curso</h1>
+    <form action="{{ route('curso.update', $curso) }}" method="post">
+        @csrf
+        @method('PUT')
+        <label for="">Titulo</label><br>
+        <input type="text" name="titulo" value="{{ $curso->titulo }}"><br>
+        <label for="">Descripcion</label><br>
+        <textarea name="description" id="" cols="30" rows="10">{{ $curso->description }}</textarea><br><br>
+        <button type="submit">Guardar la edicion</button>
+    </form><br><br><br>
+    <a href="{{ route('curso.index') }}"> Lista de cursos</a>
+@endsection
+
+6. Cambiar el metodo update
+{
+        //dd($request->all(), $curso);
+        
+        $curso->titulo = $request->titulo;
+        $curso->description = $request->description;
+        $curso->save();
+
+        return redirect()->route('curso.edit', $curso);
+    }
+
+7. Para eliminar en la vista general (index) de curso (curso.blade.php)
+agregamos otra columna con un post al que le pasaremos el metodo DELETE como sigue
+<td>
+     <form action="{{route('curso.destroy',$curso) }}" method="post">
+          @csrf
+          @method('DELETE')
+          <button type="submit">Eliminar Datos</button>
+     </form>
+</td>
+
+8.Luego modificamos el metodo destroy en el controlador
+{
+        $curso->delete();
+        return redirect()->route('curso.index');
+   }
+
+9. Para validar si queremos hacerlo en el controlador podemos hacerlo en los metodos (store y update)
+y escribimos
+$this->validate(request(),
+        ['titulo' => 'required',
+        'description' => 'required']);
+
+10. Podemos crear el Request en App directamente para no escribir en los controladores lo creamos en la consola como sigue:
+php artisan make:request CursoRequest
+
+11. En el metodo autorize se puede editar por "roles" quienes pueden hacer modificaciones, para acciones practicas haremos 
+el return "true".
+
+12. En el metodo rule() del CursoRequest modificamos el return
+return [
+            'titulo' => ['required', new MayusculaRule()],
+            'description' => 'required'
+        ];
+
+13. Debemos incluir en el encabezado del controlador el Request que acabamos de crear con la ayuda del "use"
+use App\Http\Requests\CursoRequest;
+
+14. Tambien podemos personalizar las reglas de los formularios creando Rule en la linea de comandos
+php artisan make:rule MayusculaRule
+
+15. En el MayusculaRule editamos el passes como lo queremos, en nuestro caso queriamos validar que los datos fueran solo en mayuscula
+return strtoupper($value) === $value;
+
+16. En el metodo message() del Rule podemos editar como queramos
+return 'El :attribute debe ser en mayuscula.'
+
+17. Debemos incluir la regla que acabamos de crear dentro del Request que lo vayamos a usar en nuesrtro caso lo usamos en CursoRequest
+use App\Rules\MayusculaRule;
+
+18. Si una de nuestras validaciones tiene mas de una accion necesario debemos recordar crear un array para ello como lo hicimos en rules() del CursoRequest
+return [
+            'titulo' => ['required', new MayusculaRule()],
+            'description' => 'required'
+        ];
+en este caso para "titulo".
+
