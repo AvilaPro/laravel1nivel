@@ -213,3 +213,7 @@ return [
         ];
 en este caso para "titulo".
 
+Nota: Revisar el siguiente enlace que aclara el problema con los parametros de ruta que se tuvo en el desafio 3.
+https://laravel.com/docs/5.8/controllers#restful-naming-resource-routes
+
+Listo.!!!
